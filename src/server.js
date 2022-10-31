@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter.js";
-
+import userRouter from "./routers/userRouter.js";
 const app = express();
 const loggerMid = (req, res, next) => {
   console.log(`Path: ${req.path}`);
@@ -36,5 +36,6 @@ app.use(timeMid);
 app.use(securityMid);
 app.use(protectorMid);
 app.use("/", globalRouter);
+app.use("/users", userRouter);
 
-app.listen(3000, () => console.log("express 3000 listen"));
+export default app;
