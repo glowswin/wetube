@@ -1,15 +1,5 @@
-let videos = [
-  {
-    title: "sdfsdfsdfsdf",
-    id: 1,
-  },
-  {
-    title: "werwerewr",
-    id: 2,
-  },
-  {
-    title: "sdfsdfsfdsdf",
-    id: 3,
-  },
-];
-export const homeControl = (req, res) => res.render("home", { videos });
+import Movie from "../models/Movie.js";
+export const homeControl = async (req, res) => {
+  const movies = await Movie.find({});
+  return res.render("home", { movies });
+};

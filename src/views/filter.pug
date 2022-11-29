@@ -1,0 +1,14 @@
+extends partials/base
+include partials/movie
+block content
+  if year
+    h1 Search by year #{year}
+  else if rating 
+    h1 Search by rating #{rating}
+  form(method="get",action="/filter")
+    input(placeholder="Filter by year",name="year" )
+    input(placeholder="Filter by rating" name="rating" )
+    input(type="submit",value="search")
+  ul 
+  each movie in movies
+    +movie(movie)

@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter.js";
 import userRouter from "./routers/userRouter.js";
+import movieRouter from "./routers/movieRouter.js";
 const app = express();
 const loggerMid = (req, res, next) => {
   console.log(`Path: ${req.path}`);
@@ -37,5 +38,6 @@ app.use(securityMid);
 app.use(protectorMid);
 app.use("/", globalRouter);
 app.use("/users", userRouter);
+app.use("/movies", movieRouter);
 
 export default app;

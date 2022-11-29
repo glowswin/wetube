@@ -1,0 +1,8 @@
+extends templates/layout
+block content
+    h1 Add Movie 
+    form(method="POST")
+        input(name="title",type="text",placeholder="Title")
+        textarea(name="summary",placeholder="summary")
+        input(name="genres",type="text",placeholder="Genres")
+        input(type="submit",value="Add Movie")

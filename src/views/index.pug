@@ -1,0 +1,11 @@
+extends partials/base
+include partials/movie
+block content
+  h1 Movies!
+  form(method="get",action="/filter")
+    input(placeholder="Filter by year",name="year")
+    input(placeholder="Filter by rating" name="rating")
+    input(type="submit",value="search")
+  ul 
+    each movie in movies
+      +movie(movie)
