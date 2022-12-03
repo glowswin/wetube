@@ -17,18 +17,21 @@ export const getAdd = (req, res) => {
 };
 
 export const postAdd = async (req, res) => {
+  const { path: fileUrl } = req.file;
   const { title, summary, genres } = req.body;
   const genress = genres.split(",");
-  await Movie.create({ title, summary, genres: genress });
+  await Movie.create({ title, summary, path: fileUrl, genres: genress });
   return res.redirect("/");
 };
-export const filterMovie = async (req, res) => {
-  const { year, rating } = req.query;
-  let movies;
-  if (year) {
-    movies = await Movie.find({ year });
-  } else if (rating) {
-    movies = await Movie.find({ rating });
+export const searchMovie = async (req, res) => {
+  const { searchText } = req.query;
+  let movies = [];
+  if (searchText) {
+    movies = await Movie.find({
+      title: {
+        $regex: new RegExp(`${searchText}$`, "i"),
+      },
+    });
   }
-  return res.render("filter", { year, rating, movies });
+  return res.render("search", { pageTitle: "Search!~~~", movies });
 };
