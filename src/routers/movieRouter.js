@@ -6,6 +6,8 @@ import {
   postAdd,
   searchMovie,
   postComment,
+  movieEdit,
+  postMovieEdit,
 } from "../controls/movieControl.js";
 import { protectorMiddleware } from "../middlewares.js";
 import multer from "multer";
@@ -30,5 +32,13 @@ movieRouter
   .all(protectorMiddleware)
   .get(movieDetail)
   .post(postComment);
+movieRouter
+  .route("/:id/edit")
+  .all(protectorMiddleware)
+  .get(movieEdit)
+  .post(
+    videoUpload.fields([{ name: "movie" }, { name: "img" }]),
+    postMovieEdit
+  );
 
 export default movieRouter;

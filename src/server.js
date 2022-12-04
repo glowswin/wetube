@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(morgan("combined"));
 app.use(
   session({
-    secret: "Hello!",
+    secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: true,
   })

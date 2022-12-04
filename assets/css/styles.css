@@ -212,6 +212,12 @@ div#commentList div.comment span.name {
   padding-bottom: 7px;
 }
 
+div.editMovie {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+
 main div.content {
   margin: 20px auto;
   display: flex;
@@ -267,6 +273,7 @@ nav ul {
 main {
   margin-top: 50px;
   min-height: 400px;
+  position: relative;
 }
 
 footer {

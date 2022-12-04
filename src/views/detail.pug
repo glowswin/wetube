@@ -1,6 +1,9 @@
 extends partials/base
 block content
     h1=movie.title
+    if movie.owner._id==loggedInUser._id
+        div.editMovie 
+            a(href=`/movies/${movie._id}/edit`) 수정 
     div#videoContainer
         video(src="/" + movie.path)
         div#videoControls.videoControls

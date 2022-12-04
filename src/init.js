@@ -1,4 +1,6 @@
+import "regenerator-runtime";
+import "dotenv/config";
 import "./db.js";
 import app from "./server.js";
-
-app.listen(3000, () => console.log("express 3000 listen"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`express ${PORT}  listen`));

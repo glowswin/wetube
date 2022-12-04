@@ -11,7 +11,6 @@ module.exports = {
     clean: true,
   },
   mode: "development",
-  watch: true,
   watchOptions: {
     poll: true,
     ignored: /node_modules/,

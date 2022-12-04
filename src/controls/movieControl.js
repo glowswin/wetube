@@ -8,12 +8,14 @@ export const home = async (req, res) => {
 };
 export const movieDetail = async (req, res) => {
   const id = req.params.id;
-  const movie = await Movie.findById(id).populate({
-    path: "comments",
-    populate: {
-      path: "owner",
-    },
-  });
+  const movie = await Movie.findById(id)
+    .populate({
+      path: "comments",
+      populate: {
+        path: "owner",
+      },
+    })
+    .populate("owner");
   if (!movie) {
     res.render("404", { pageTitle: "Movie not found" });
   }
@@ -72,5 +74,31 @@ export const postComment = async (req, res) => {
   const user = await User.findById(_id);
   user.comments.push(newComment._id);
   user.save();
+  return res.redirect("/movies/" + id);
+};
+
+export const movieEdit = async (req, res) => {
+  const id = req.params.id;
+  const movie = await Movie.findById(id);
+  const strGenres = movie.genres.join(",");
+  return res.render("editMovie", { pageTitle: "동영상수정", movie, strGenres });
+};
+
+export const postMovieEdit = async (req, res) => {
+  const id = req.params.id;
+  const { movie, img } = req.files;
+  const { title, summary, genres } = req.body;
+  const genress = genres.split(",");
+  await Movie.findByIdAndUpdate(
+    id,
+    {
+      title,
+      summary,
+      path: movie[0].path,
+      img_path: img[0].path,
+      genres: genress,
+    },
+    { new: true }
+  );
   return res.redirect("/movies/" + id);
 };
