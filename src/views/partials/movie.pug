@@ -2,6 +2,6 @@ mixin movie(movie)
     div.movie
         div.img 
             a(href='/movies/'+movie.id)
-                img(src=movie.img_path)
+                img(src='/'+movie.img_path)
         div.title
             span=movie.title

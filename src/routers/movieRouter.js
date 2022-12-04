@@ -20,9 +20,10 @@ const movieRouter = express.Router();
 movieRouter.get("/", protectorMiddleware, home);
 movieRouter
   .route("/add")
+  .all(protectorMiddleware)
   .get(getAdd)
   .post(videoUpload.fields([{ name: "movie" }, { name: "img" }]), postAdd);
-movieRouter.get("/search", searchMovie);
-movieRouter.get("/:id", movieDetail);
+movieRouter.get("/search", protectorMiddleware, searchMovie);
+movieRouter.get("/:id", protectorMiddleware, movieDetail);
 
 export default movieRouter;

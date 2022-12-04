@@ -2,13 +2,12 @@ extends partials/base
 include partials/movie
 block content
   h1=pageTitle
-  if year
-    h1 Search by year #{year}
-  else if rating 
-    h1 Search by rating #{rating}
   form(method="get")
-    input(placeholder="search by text",name="searchText" )
-    input(type="submit",value="search")
+    div.content
+      div.textbox
+        span 동영상
+        input(placeholder="동영상검색",name="searchText" )
+        input(type="submit",value="search")
   div.container
     each movie in movies
       +movie(movie)
