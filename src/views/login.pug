@@ -3,8 +3,14 @@ extends partials/base
 block content
   h1=pageTitle
   form(method="post")
-    input(type="text",name="username",placeholder="아이디")
-    input(type="password",name="password",placeholder="비밀번호")
-    input(type="submit",value="로그인")
-    a(href="/join") 회원가입
+    div.content
+      div.textbox  
+        span 아이디
+        input(type="text",name="username",placeholder="아이디")
+      div.textbox 
+        span 비밀번호
+        input(type="password",name="password",placeholder="비밀번호")
+      div.button 
+        input(type="submit",value="로그인")
+      a(href="/users/join") 회원가입
   div(style="color:red;")=errorMessage

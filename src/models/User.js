@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
+  userid: String,
   name: String,
   pass: String,
   age: Number,
-  location: String,
 });
 
 const User = mongoose.model("User", UserSchema);

@@ -1,0 +1,17 @@
+main div.content {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+main div.content .textbox {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+}
+
+main div.content .textbox span {
+  display: block;
+  width: 100px;
+}

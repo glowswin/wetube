@@ -9,17 +9,20 @@ import {
 import { protectorMiddleware } from "../middlewares.js";
 import multer from "multer";
 
-const textuload = multer({
-  dest: "uploads/text/",
+const videoUpload = multer({
+  dest: "uploads/videos/",
   limits: {
-    fileSize: 10000000,
+    fileSize: 90000000,
   },
 });
 
 const movieRouter = express.Router();
 movieRouter.get("/", protectorMiddleware, home);
-movieRouter.get("/:id(\\d+)", movieDetail);
-movieRouter.route("/add").get(getAdd).post(textuload.single("html"), postAdd);
+movieRouter.get("/:id", movieDetail);
+movieRouter
+  .route("/add")
+  .get(getAdd)
+  .post(videoUpload.fields([{ name: "movie" }, { name: "img" }]), postAdd);
 movieRouter.get("/search", searchMovie);
 
 export default movieRouter;

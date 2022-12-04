@@ -1,3 +1,27 @@
 extends partials/base
-block content 
-    div wewwww
+
+block content
+  h1=pageTitle
+  form(method="post")
+    div.content
+      div.textbox
+        span 아이디
+        span=user.userid
+      div.textbox 
+        span 기존비밀번호
+        input(type="password",name="pass",placeholder="비밀번호")        
+      div.textbox 
+        span 비밀번호
+        input(type="password",name="password",placeholder="비밀번호")
+      div.textbox 
+        span 비밀번호확인 
+        input(type="password",name="passwordConfirm",placeholder="비밀번호확인")
+      div.textbox 
+        span 이름 
+        input(type="text",name="name",placeholder="이름",value=user.name)
+      div.textbox 
+        span 나이
+        input(type="text",name="age",placeholder="나이",value=user.age)
+      div.button
+        input(type="submit",value="수정")
+    div(style="color:red;")=errorMessage

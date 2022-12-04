@@ -1,6 +1,7 @@
 extends partials/base
 include partials/movie
 block content
+  h1=pageTitle
   if year
     h1 Search by year #{year}
   else if rating 

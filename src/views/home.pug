@@ -1,5 +1,6 @@
 extends partials/base
 include partials/movie
 block content 
-    each movie in movies 
-        +movie(movie)
+    div.container
+        each movie in movies 
+            +movie(movie)

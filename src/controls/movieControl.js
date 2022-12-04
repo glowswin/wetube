@@ -17,10 +17,16 @@ export const getAdd = (req, res) => {
 };
 
 export const postAdd = async (req, res) => {
-  const { path: fileUrl } = req.file;
+  const { movie, img } = req.files;
   const { title, summary, genres } = req.body;
   const genress = genres.split(",");
-  await Movie.create({ title, summary, path: fileUrl, genres: genress });
+  await Movie.create({
+    title,
+    summary,
+    path: movie[0].path,
+    img_path: img[0].path,
+    genres: genress,
+  });
   return res.redirect("/");
 };
 export const searchMovie = async (req, res) => {

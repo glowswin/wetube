@@ -1,6 +1,5 @@
 import express from "express";
 import morgan from "morgan";
-import bodyParser from "body-parser";
 import session from "express-session";
 import globalRouter from "./routers/globalRouter.js";
 import userRouter from "./routers/userRouter.js";
@@ -10,7 +9,8 @@ import { localsMiddleware } from "./middlewares.js";
 const app = express();
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(morgan("combined"));
 app.use(
   session({

@@ -1,9 +1,12 @@
 html 
     head 
-        tile dalkdjlkajdf 
+        title wetube 
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
         link(rel="stylesheet", href="/static/css/styles.css")        
     body 
-        block content
+        div#wrap
+            include header                
+            main
+                block content
+            include footer
     block scripts 
-    include footer

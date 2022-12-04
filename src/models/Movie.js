@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
   title: String,
-  summary: Number,
+  summary: String,
   path: String,
-  year: Number,
+  img_path: String,
   genres: [String],
 });
 
