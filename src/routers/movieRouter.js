@@ -18,11 +18,11 @@ const videoUpload = multer({
 
 const movieRouter = express.Router();
 movieRouter.get("/", protectorMiddleware, home);
-movieRouter.get("/:id", movieDetail);
 movieRouter
   .route("/add")
   .get(getAdd)
   .post(videoUpload.fields([{ name: "movie" }, { name: "img" }]), postAdd);
 movieRouter.get("/search", searchMovie);
+movieRouter.get("/:id", movieDetail);
 
 export default movieRouter;

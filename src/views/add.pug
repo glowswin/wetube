@@ -1,10 +1,22 @@
 extends partials/base
 block content
-    h1 Add Movie  
+    h1=pageTitle 
     form(method="POST", enctype="multipart/form-data")
-        input(name="title",type="text",placeholder="타이틀")
-        textarea(name="summary",placeholder="내용")
-        input(name="movie",type="file")
-        input(name="img",type="file")
-        input(name="genres",type="text",placeholder="장르")
-        input(type="submit",value="추가")
+        div.content
+            div.textbox 
+                span 타이틀
+                input(name="title",type="text",placeholder="타이틀")
+            div.textbox 
+                span 내용
+                textarea(name="summary",placeholder="내용")
+            div.textbox 
+                span 동영상파일
+                input(name="movie",type="file")
+            div.textbox 
+                span 이미지파일
+                input(name="img",type="file")
+            div.textbox 
+                span 장르
+                input(name="genres",type="text",placeholder="장르")
+            div.button
+                input(type="submit",value="추가")

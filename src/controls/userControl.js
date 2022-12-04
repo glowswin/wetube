@@ -4,6 +4,7 @@ export const user = async (req, res) => {
   return res.render("user");
 };
 export const userEdit = (req, res) => {
+  console.log("사용자정복수정");
   const user = req.session.user;
   return res.render("userEdit", { pageTitle: "사용자정보수정", user });
 };

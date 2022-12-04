@@ -13,7 +13,7 @@ export const movieDetail = async (req, res) => {
   return res.render("detail", { movie });
 };
 export const getAdd = (req, res) => {
-  return res.render("add");
+  return res.render("add", { pageTitle: "동영상 업로드" });
 };
 
 export const postAdd = async (req, res) => {
@@ -39,5 +39,5 @@ export const searchMovie = async (req, res) => {
       },
     });
   }
-  return res.render("search", { pageTitle: "Search!~~~", movies });
+  return res.render("search", { pageTitle: "동영상 검색", movies });
 };

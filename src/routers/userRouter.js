@@ -16,7 +16,7 @@ const userRouter = express.Router();
 
 userRouter.get("/", protectorMiddleware, home);
 userRouter.get("/:id(\\d+)", user);
-userRouter.get("/edit-profile").get(userEdit).post(postEdit);
+userRouter.route("/edit-profile").get(userEdit).post(postEdit);
 userRouter.route("/login").get(login).post(postLogin);
 userRouter.route("/join").get(join).post(postJoin);
 userRouter.get("/logout", logout);
