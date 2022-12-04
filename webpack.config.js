@@ -10,11 +10,6 @@ module.exports = {
     filename: "js/[name].js",
     clean: true,
   },
-  mode: "development",
-  watchOptions: {
-    poll: true,
-    ignored: /node_modules/,
-  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
