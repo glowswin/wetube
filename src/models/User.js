@@ -4,6 +4,8 @@ const UserSchema = new mongoose.Schema({
   name: String,
   pass: String,
   age: Number,
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  movies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
 });
 
 const User = mongoose.model("User", UserSchema);

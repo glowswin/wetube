@@ -171,6 +171,47 @@ div.videoControls__play {
   justify-items: center;
 }
 
+div#videoContainer p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+div#videoContainer ul {
+  margin-top: 10px;
+  color: grey;
+  font-size: 15px;
+}
+
+h2.dat {
+  font-size: 30px;
+}
+
+div#commentInput {
+  margin-top: 20px;
+}
+
+div#commentInput textarea {
+  width: 95%;
+}
+
+div#commentList {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+div#commentList div.comment {
+  border-bottom: 1px dashed grey;
+  padding: 5px 0;
+}
+
+div#commentList div.comment span.name {
+  color: gray;
+  width: 50px;
+  display: block;
+  font-size: 12px;
+  padding-bottom: 7px;
+}
+
 main div.content {
   margin: 20px auto;
   display: flex;

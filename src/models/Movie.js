@@ -5,6 +5,8 @@ const UserSchema = new mongoose.Schema({
   path: String,
   img_path: String,
   genres: [String],
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 });
 
 const Movie = mongoose.model("Movie", UserSchema);
